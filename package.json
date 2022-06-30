@@ -1,0 +1,51 @@
+{
+  "name": "ui-builder",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*": "prettier -wu ."
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "pnpm fmt:w",
+    "commit": "commit",
+    "fmt:c": "prettier -cu .",
+    "fmt:w": "prettier -wu .",
+    "rel": "standard-version --help",
+    "rel:d": "standard-version --dry-run",
+    "rel:d:as": "standard-version --dry-run --release-as",
+    "rel:d:m": "standard-version --dry-run --release-as major",
+    "rel:d:n": "standard-version --dry-run --release-as minor",
+    "rel:d:p": "standard-version --dry-run --release-as patch",
+    "rel:v": "standard-version",
+    "rel:v:as": "standard-version --release-as",
+    "rel:v:m": "standard-version --release-as major",
+    "rel:v:n": "standard-version --release-as minor",
+    "rel:v:p": "standard-version --release-as patch",
+    "pub:g": "conventional-github-releaser -v",
+    "pub:n": "npm publish",
+    "postinstall": "pnpm husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/prompt-cli": "^17.0.3",
+    "conventional-github-releaser": "^3.1.5",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "standard-version": "^9.5.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@7.4.0"
+}
